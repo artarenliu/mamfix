@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAM - Mirëmbajtje Paisjesh Mjekësore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Modern Medical Color Palette */
+            --primary-blue: #0077B6;
+            --secondary-blue: #00B4D8;
+            --accent-teal: #48CAE4;
+            --medical-green: #06D6A0;
+            --dark-navy: #023047;
+            --light-gray: #F8FAFC;
+            --medium-gray: #E2E8F0;
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #0077B6 0%, #00B4D8 100%);
+            --gradient-secondary: linear-gradient(135deg, #48CAE4 0%, #06D6A0 100%);
+            --gradient-dark: linear-gradient(135deg, #023047 0%, #0077B6 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-blue);
+        }
+
+        .lang-toggle {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+        }
+
+        .lang-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 119, 182, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(2, 48, 71, 0.95) 0%, rgba(0, 119, 182, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1920') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(72, 202, 228, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark-navy);
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        #services {
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--medium-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--secondary-blue);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg);
+        }
+
+        .service-card h3 {
+            color: var(--dark-navy);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 0.6rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.95rem;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            color: var(--medical-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: 20px;
+            height: 20px;
+            background: rgba(6, 214, 160, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(2, 48, 71, 0.95), transparent);
+            padding: 2rem;
+            color: white;
+            transform: translateY(0);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--dark-navy);
+            color: white;
+        }
+
+        #about .section-title {
+            color: white;
+        }
+
+        #about .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        #about .section-badge {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .about-feature h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .about-feature p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--light-gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+        }
+
+        .contact-card h3 {
+            font-size: 1.8rem;
+            color: var(--dark-navy);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .contact-info-text strong {
+            display: block;
+            color: var(--dark-navy);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-text span,
+        .contact-info-text a {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: block;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            font-size: 1.4rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 119, 182, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 2.5rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 3px;
+            background: var(--dark-navy);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: var(--nav-height, 75px);
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.08);
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+        }
+
+        /* Smooth Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    .logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: clamp(56px, 10vh, 110px); /* responsive: min 56px, prefer 10vh, max 110px */
+    width: auto;
+    margin-right: 16px;
+}
+
+/* --- Responsive tweaks & bigger logo --- */
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px; /* larger logo on desktop */
+    width: auto;
+    margin-right: 16px;
+}
+
+/* tighten header on scroll for better mobile view */
+.navbar.scrolled .nav-container {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+/* Improve nav spacing on medium screens */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 1rem 1rem;
+    }
+    .nav-menu {
+        gap: 1.75rem;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .logo img {
+        height: 80px; /* still bigger than before, but scaled for phones */
+    }
+    .nav-container {
+        padding: 0.75rem 1rem;
+    }
+    .nav-menu {
+        top: var(--nav-height, 75px); /* accounts for taller logo/header */
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Slightly larger tap targets in mobile menu */
+.nav-menu a, .lang-toggle {
+    padding: 0.25rem 0.1rem;
+}
+
+
+@media (max-width: 768px) {
+    .logo img {
+        height: clamp(52px, 8vh, 90px);
+    }
+    .nav-container {
+        padding: 0.6rem 1rem;
+    }
+    .nav-menu {
+        /* top set via CSS var populated by JS */
+    }
+}
+
+:root { --nav-height: 75px; }
+
+.hero {
+    padding-top: calc(var(--nav-height) + 4rem);
+}
+
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="images/mam-logo.png" alt="MAM Medical Logo"></div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a onclick="scrollToSection('home')" data-en="Home" data-sq="Ballina">Ballina</a></li>
+                <li><a onclick="scrollToSection('services')" data-en="Services" data-sq="Shërbimet">Shërbimet</a></li>
+                <li><a onclick="scrollToSection('gallery')" data-en="Portfolio" data-sq="Portofolio">Portofolio</a></li>
+                <li><a onclick="scrollToSection('about')" data-en="About" data-sq="Rreth Nesh">Rreth Nesh</a></li>
+                <li><a onclick="scrollToSection('contact')" data-en="Contact" data-sq="Kontakt">Kontakt</a></li>
+                <li><button class="lang-toggle" onclick="toggleLanguage()">EN</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <div class="hero-badge" data-en="Quality in Service Since 2005" data-sq="Cilësi në Shërbim Që Nga 2005">
+                Cilësi në Shërbim Që Nga 2005
+            </div>
+            <h1 data-en="Professional Medical Equipment Maintenance" data-sq="Mirëmbajtje Profesionale e Aparaturave Mjekësore">
+                Mirëmbajtje Profesionale e<br>Aparaturave Mjekësore
+            </h1>
+            <p data-en="Delivering excellence in healthcare technology services across the region" data-sq="Duke ofruar përsosmëri në shërbimet e teknologjisë shëndetësore në të gjithë rajonin">
+                Duke ofruar përsosmëri në shërbimet e teknologjisë shëndetësore në të gjithë rajonin
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">20+</span>
+                    <span class="hero-stat-label" data-en="Years Experience" data-sq="Vite Përvojë">Vite Përvojë</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">500+</span>
+                    <span class="hero-stat-label" data-en="Happy Clients" data-sq="Klientë të Kënaqur">Klientë të Kënaqur</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">5000+</span>
+                    <span class="hero-stat-label" data-en="Services Completed" data-sq="Shërbime të Përfunduara">Shërbime të Përfunduara</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-en="What We Do" data-sq="Çfarë Bëjmë">Çfarë Bëjmë</div>
+                <h2 class="section-title" data-en="Our Services" data-sq="Shërbimet Tona">Shërbimet Tona</h2>
+                <p class="section-description" data-en="Comprehensive maintenance and repair services for all types of medical equipment" data-sq="Shërbime gjithëpërfshirëse mirëmbajtjeje dhe riparimi për të gjitha llojet e pajisjeve mjekësore">
+                    Shërbime gjithëpërfshirëse mirëmbajtjeje dhe riparimi për të gjitha llojet e pajisjeve mjekësore
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3 data-en="Medical Equipment" data-sq="Pajisje Mjekësore">Pajisje Mjekësore</h3>
+                    <ul>
+                        <li data-en="ECG Machines" data-sq="Aparate EKG">Aparate EKG</li>
+                        <li data-en="Defibrillators" data-sq="Defibrilatorë">Defibrilatorë</li>
+                        <li data-en="Ultrasound Systems" data-sq="Sisteme Ultrazë">Sisteme Ultrazë</li>
+                        <li data-en="Patient Monitors" data-sq="Monitorë Pacientësh">Monitorë Pacientësh</li>
+                        <li data-en="Infusion Pumps" data-sq="Pompa Infuzioni">Pompa Infuzioni</li>
+                        <li data-en="Aesthetic equipment" data-sq="Pajisje Estetike">Pajisje Estetike</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-microscope"></i></div>
+                    <h3 data-en="Laboratory Equipment" data-sq="Pajisje Laboratorike">Pajisje Laboratorike</h3>
+                    <ul>
+                        <li data-en="Microscopes" data-sq="Mikroskopë">Mikroskopë</li>
+                        <li data-en="Blood Analyzers" data-sq="Analizatorë Gjaku">Analizatorë Gjaku</li>
+                        <li data-en="Cell Counters" data-sq="Numërues Qelizash">Numërues Qelizash</li>
+                        <li data-en="Centrifuges" data-sq="Centrifugë">Centrifugë</li>
+                        <li data-en="Incubators" data-sq="Inkubatorë">Inkubatorë</li>
+                        <li data-en="Spectrophotometers" data-sq="Spektrofotometra">Spektrofotometra</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tooth"></i></div>
+                    <h3 data-en="Dental Equipment" data-sq="Pajisje Dentare">Pajisje Dentare</h3>
+                    <ul>
+                        <li data-en="Autoclaves" data-sq="Autoklavë">Autoklavë</li>
+                        <li data-en="Dental Chairs" data-sq="Karrige Dentare">Karrige Dentare</li>
+                        <li data-en="Air Compressors" data-sq="Kompresorë Ajri">Kompresorë Ajri</li>
+                        <li data-en="Surgical Aspirators" data-sq="Aspiratorë Kirurgjikalë">Aspiratorë Kirurgjikalë</li>
+                        
+                        <li data-en="Dental Equipment" data-sq="Pajisje Dentare">Pajisje Dentare</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3 data-en="Testing & Calibration" data-sq="Testim & Kalibrim">Testim & Kalibrim</h3>
+                    <ul>
+                        <li data-en="Autoclave Validation" data-sq="Vërtetim Autoklavësh">Vërtetim Autoklavësh</li>
+                        <li data-en="ECG Calibration" data-sq="Kalibrim EKG">Kalibrim EKG</li>
+                        <li data-en="Defibrillator Testing" data-sq="Testim Defibrilatorësh">Testim Defibrilatorësh</li>
+                        <li data-en="Monitor Verification" data-sq="Verifikim Monitorësh">Verifikim Monitorësh</li>
+                        <li data-en="Safety Inspections" data-sq="Kontrolle Sigurie">Kontrolle Sigurie</li>
+                        <li data-en="Preventive Maintenance" data-sq="Mirëmbajtje Parandaluese">Mirëmbajtje Parandaluese</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-en="Our Work" data-sq="Puna Jonë">Puna Jonë</div>
+                <h2 class="section-title" data-en="Completed Projects" data-sq="Projekte të Realizuara">Projekte të Realizuara</h2>
+                <p class="section-description" data-en="A showcase of our recent maintenance and installation projects" data-sq="Një shfaqje e projekteve tona të fundit të mirëmbajtjes dhe instalimit">
+                    Një shfaqje e projekteve tona të fundit të mirëmbajtjes dhe instalimit
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop" alt="Hospital Equipment">
+                    <div class="gallery-overlay">
+                        <h4 data-en="Hospital Equipment Maintenance" data-sq="Mirëmbajtje E Aparaturave Mjekësore">Mirëmbajtje E Aparaturave Mjekësore</h4>
+                        <p data-en="Services for hospitals and private polyclinics" data-sq="Shërbime per spitale dhe poliklinika private">Shërbime per spitale dhe poliklinika private</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581594549595-35f6edc7b762?w=800&h=600&fit=crop" alt="Laboratory">
+                    <div class="gallery-overlay">
+                        <h4 data-en="Lab Equipment Maintenance" data-sq="Servisim i Pajisjeve Laboratorike">Servisim i Pajisjeve Laboratorike</h4>
+                        <p data-en="Service of all laboratory equipment" data-sq="Servis i të gjitha pajisjeve laboratorike">Servis i të gjitha pajisjeve laboratorike</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop" alt="Dental Clinic">
+                    <div class="gallery-overlay">
+                        <h4 data-en="Dental Equipment Maintenance" data-sq="Mirëmbajtje e Pajisjeve Dentare">Mirëmbajtje e Pajisjeve Dentare</h4>
+                        <p data-en="Full dental equipment maintenance" data-sq="Mirëmbajtje e plotë e pajisjeve dentare">Mirëmbajtje e plotë e pajisjeve dentare</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&h=600&fit=crop" alt="Testing">
+                    <div class="gallery-overlay">
+                        <h4 data-en="Equipment Testing" data-sq="Testim Pajisjesh">Testim Pajisjesh</h4>
+                        <p data-en="Comprehensive calibration services" data-sq="Shërbime të plota kalibrimi">Shërbime të plota kalibrimi</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery_aesthetic.jpg" alt="Aesthetic">
+                    <div class="gallery-overlay">
+                        <h4 data-en="Aesthetic Equipment Maintenance" data-sq="Mirëmbajtje e Aparaturave Estetike">Mirëmbajtje e Aparaturave Estetike</h4>
+                        <p data-en="Full maintenance of aesthetic equipment" data-sq="Mirëmbajtje e plotë e Aparaturave Estetike">Mirëmbajtje e plotë e Aparaturave Estetike</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/milkoscan.jpg" alt="milkoscan">
+                    <div class="gallery-overlay">
+                        <h4 data-en="FoodTech Laboratory Systems" data-sq="Sistemet Laboratorike të Teknologjisë Ushqimore">Sistemet Laboratorike të Teknologjisë Ushqimore</h4>
+                        <p data-en="Full maintenance of FoodTech Laboratory Equipment" data-sq="Riparim dhe mirëmbajtje e sistemeve Laboratorike të Teknologjisë Ushqimore">Riparim dhe mirëmbajtje e sistemeve Laboratorike të Teknologjisë Ushqimore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-en="About MAM" data-sq="Rreth MAM">Rreth MAM</div>
+                <h2 class="section-title" data-en="Two Decades of Excellence" data-sq="Dy Dekada Përsosmërie">Dy Dekada Përsosmërie</h2>
+                <p class="section-description" data-en="Your trusted partner in medical equipment maintenance" data-sq="Partneri juaj i besueshëm në mirëmbajtjen e pajisjeve mjekësore">
+                    Partneri juaj i besueshëm në mirëmbajtjen e pajisjeve mjekësore
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-en="MAM Medical Equipment Maintenance has been at the forefront of healthcare technology services in Albania for over 20 years. We specialize in the comprehensive maintenance, repair, calibration, and testing of medical, laboratory, and dental equipment." data-sq="MAM Mirëmbajtje Pajisjesh Mjekësore ka qenë në ballë të shërbimeve të teknologjisë shëndetësore në Shqipëri për më shumë se 20 vjet. Ne specializohemi në mirëmbajtjen gjithëpërfshirëse, riparimin, kalibrimin dhe testimin e pajisjeve mjekësore, laboratorike dhe dentare.">
+                        MAM Mirëmbajtja e Aparaturave Mjekësore ka qenë në ballë të shërbimeve të teknologjisë shëndetësore në Shqipëri për më shumë se 20 vjet. Ne specializohemi në mirëmbajtjen gjithëpërfshirëse, riparimin, kalibrimin dhe testimin e pajisjeve mjekësore, laboratorike dhe dentare.
+                    </p>
+                    <p data-en="Our team of certified technicians ensures that your medical equipment operates at peak performance, helping you deliver the best possible care to your patients. We pride ourselves on rapid response times, technical expertise, and an unwavering commitment to quality and safety." data-sq="Ekipi ynë i teknikëve të çertifikuar siguron që pajisjet tuaja mjekësore të funksionojnë në performancën maksimale, duke ju ndihmuar të ofroni kujdesin më të mirë të mundshëm për pacientët tuaj. Ne krenohemi me kohët tona të shpejta të përgjigjes, ekspertizën teknike dhe angazhimin e palëkundur ndaj cilësisë dhe sigurisë.">
+                        Ekipi ynë i teknikëve të çertifikuar siguron që pajisjet tuaja mjekësore të funksionojnë në performancën maksimale, duke ju ndihmuar të ofroni kujdesin më të mirë të mundshëm për pacientët tuaj. Ne krenohemi me kohët tona të shpejta të përgjigjes, ekspertizën teknike dhe angazhimin e palëkundur ndaj cilësisë dhe sigurisë.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-certificate"></i></div>
+                            <div>
+                                <h4 data-en="Certified Technicians" data-sq="Teknikë të Çertifikuar">Teknikë të Çertifikuar</h4>
+                                <p data-en="Highly trained professionals" data-sq="Profesionistë me trajnim të lartë">Profesionistë me trajnim të lartë</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h4 data-en="24/7 Support" data-sq="Mbështetje 24/7">Mbështetje 24/7</h4>
+                                <p data-en="Always here when you need us" data-sq="Gjithmonë këtu kur na keni nevojë">Gjithmonë këtu kur na keni nevojë</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label" data-en="Years in Business" data-sq="Vite në Biznes">Vite në Biznes</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label" data-en="Healthcare Clients" data-sq="Klientë Shëndetësor">Klientë Shëndetësor</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label" data-en="Equipment Serviced" data-sq="Pajisje të Servisuara">Pajisje të Servisuara</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label" data-en="Client Satisfaction" data-sq="Kënaqësi Klientësh">Kënaqësi Klientësh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-en="Get in Touch" data-sq="Kontaktoni Me Ne">Kontaktoni Me Ne</div>
+                <h2 class="section-title" data-en="Contact Us" data-sq="Na Kontaktoni">Na Kontaktoni</h2>
+                <p class="section-description" data-en="Reach out for service inquiries, quotes, or emergency support" data-sq="Na kontaktoni për kërkesa shërbimi, kuota ose mbështetje emergjente">
+                    Na kontaktoni për kërkesa shërbimi, kuota ose mbështetje emergjente
+                </p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-card">
+                    <h3 data-en="Contact Information" data-sq="Informacion Kontakti">Informacion Kontakti</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-info-text">
+                            <strong data-en="Phone" data-sq="Telefon">Telefon</strong>
+                            <span>+383 49 113 306</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-info-text">
+                            <strong>Email</strong>
+                            <a href="mailto:atdhearenliu@yahoo.com">atdhearenliu@yahoo.com</a>
+                            <a href="mailto:support@mam-medical.al">support@mam-medical.al</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-info-text">
+                            <strong data-en="Location" data-sq="Vendndodhja">Vendndodhja</strong>
+                            <span data-en="Prishtinë, Kosovo" data-sq="Prishtinë, Kosovë">Prishtinë, Kosovë</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:info@mam-medical.al" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h3 data-en="Business Hours" data-sq="Orari i Punës">Orari i Punës</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-calendar-week"></i></div>
+                        <div class="contact-info-text">
+                            <strong data-en="Monday - Friday" data-sq="E Hënë - E Premte">E Hënë - E Premte</strong>
+                            <span>08:00 - 17:00</span>
+                        </div>
+                    </div>
+                    
+                
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-ambulance"></i></div>
+                        <div class="contact-info-text">
+                            <strong data-en="Emergency Service" data-sq="Shërbim Emergjent">Shërbim Emergjent</strong>
+                            <span data-en="Available 24/7" data-sq="I disponueshëm 24/7">I disponueshëm 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MAM Medical Equipment Maintenance. <span data-en="All rights reserved." data-sq="Të gjitha të drejtat e rezervuara.">Të gjitha të drejtat e rezervuara.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        let currentLanguage = 'sq';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'sq' ? 'en' : 'sq';
+            const elements = document.querySelectorAll('[data-en][data-sq]');
+            
+            elements.forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLanguage}`);
+            });
+
+            document.querySelector('.lang-toggle').textContent = currentLanguage === 'sq' ? 'EN' : 'SQ';
+            document.documentElement.lang = currentLanguage;
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const sectionPosition = section.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: sectionPosition,
+                behavior: 'smooth'
+            });
+
+            document.querySelector('.nav-menu').classList.remove('active');
+        }
+
+        function toggleMenu() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('.nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards and gallery items
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .stat-box, .about-feature');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    
+// --- Dynamic navbar height for responsive layout ---
+function updateNavHeight() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    const h = navbar.offsetHeight || 75;
+    document.documentElement.style.setProperty('--nav-height', h + 'px');
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
+        navMenu.style.top = 'var(--nav-height)';
+    }
+}
+
+window.addEventListener('load', updateNavHeight);
+window.addEventListener('resize', updateNavHeight);
+window.addEventListener('scroll', updateNavHeight);
+
+</script>
+</body>
+</html>

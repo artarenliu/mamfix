@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="sq">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAM - Mirëmbajtje Paisjesh Mjekësore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -45,13 +47,13 @@
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             z-index: 1000;
             transition: all 0.3s ease;
         }
 
         .navbar.scrolled {
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
         }
 
         .nav-container {
@@ -130,8 +132,8 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(2, 48, 71, 0.95) 0%, rgba(0, 119, 182, 0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1920') center/cover fixed;
+            background: linear-gradient(135deg, rgba(2, 48, 71, 0.95) 0%, rgba(0, 119, 182, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1920') center/cover fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -269,7 +271,7 @@
             background: white;
             padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid var(--medium-gray);
             position: relative;
@@ -294,7 +296,7 @@
 
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             border-color: var(--secondary-blue);
         }
 
@@ -368,13 +370,13 @@
             overflow: hidden;
             border-radius: 20px;
             height: 300px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
             transition: all 0.4s ease;
         }
 
         .gallery-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-item img {
@@ -538,7 +540,7 @@
             background: white;
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
         }
 
         .contact-card h3 {
@@ -649,6 +651,7 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
+
             .about-content,
             .contact-container {
                 grid-template-columns: 1fr;
@@ -674,7 +677,7 @@
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.08);
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.08);
                 padding: 2rem 0;
                 gap: 1.5rem;
             }
@@ -719,6 +722,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -728,99 +732,151 @@
         .fade-in {
             animation: fadeInUp 0.6s ease-out;
         }
-    .logo {
-    display: flex;
-    align-items: center;
-}
-.logo img {
-    height: clamp(56px, 10vh, 110px); /* responsive: min 56px, prefer 10vh, max 110px */
-    width: auto;
-    margin-right: 16px;
-}
 
-/* --- Responsive tweaks & bigger logo --- */
-.nav-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 1rem 1.25rem;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
+        .logo img {
+            height: clamp(56px, 10vh, 110px);
+            /* responsive: min 56px, prefer 10vh, max 110px */
+            width: auto;
+            margin-right: 16px;
+        }
 
-.logo img {
-    height: 100px; /* larger logo on desktop */
-    width: auto;
-    margin-right: 16px;
-}
+        /* --- Responsive tweaks & bigger logo --- */
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.25rem;
+        }
 
-/* tighten header on scroll for better mobile view */
-.navbar.scrolled .nav-container {
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+        }
 
-/* Improve nav spacing on medium screens */
-@media (max-width: 1024px) {
-    .nav-container {
-        padding: 1rem 1rem;
-    }
-    .nav-menu {
-        gap: 1.75rem;
-    }
-}
+        .logo img {
+            height: 100px;
+            /* larger logo on desktop */
+            width: auto;
+            margin-right: 16px;
+        }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
-    .logo img {
-        height: 80px; /* still bigger than before, but scaled for phones */
-    }
-    .nav-container {
-        padding: 0.75rem 1rem;
-    }
-    .nav-menu {
-        top: var(--nav-height, 75px); /* accounts for taller logo/header */
-    }
-    .hero-content h1 {
-        font-size: 2rem;
-        line-height: 1.25;
-    }
-    .hero-content p {
-        font-size: 1rem;
-    }
-    .section-title {
-        font-size: 1.8rem;
-    }
-}
+        /* tighten header on scroll for better mobile view */
+        .navbar.scrolled .nav-container {
+            padding-top: 0.6rem;
+            padding-bottom: 0.6rem;
+        }
 
-/* Slightly larger tap targets in mobile menu */
-.nav-menu a, .lang-toggle {
-    padding: 0.25rem 0.1rem;
-}
+        /* Improve nav spacing on medium screens */
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 1rem 1rem;
+            }
+
+            .nav-menu {
+                gap: 1.75rem;
+            }
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .logo img {
+                height: 80px;
+                /* still bigger than before, but scaled for phones */
+            }
+
+            .nav-container {
+                padding: 0.75rem 1rem;
+            }
+
+            .nav-menu {
+                top: var(--nav-height, 75px);
+                /* accounts for taller logo/header */
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+                line-height: 1.25;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Slightly larger tap targets in mobile menu */
+        .nav-menu a,
+        .lang-toggle {
+            padding: 0.25rem 0.1rem;
+        }
 
 
-@media (max-width: 768px) {
-    .logo img {
-        height: clamp(52px, 8vh, 90px);
-    }
-    .nav-container {
-        padding: 0.6rem 1rem;
-    }
-    .nav-menu {
-        /* top set via CSS var populated by JS */
-    }
-}
+        @media (max-width: 768px) {
+            .logo img {
+                height: clamp(52px, 8vh, 90px);
+            }
 
-:root { --nav-height: 75px; }
+            .nav-container {
+                padding: 0.6rem 1rem;
+            }
 
-.hero {
-    padding-top: calc(var(--nav-height) + 4rem);
-}
+            .nav-menu {
+                /* top set via CSS var populated by JS */
+            }
+        }
 
-</style>
+        :root {
+            --nav-height: 75px;
+        }
+
+        .hero {
+            padding-top: calc(var(--nav-height) + 4rem);
+        }
+
+        /* Canva embed integration */
+        .canva-embed-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .canva-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .canva-open-btn {
+            background: var(--gradient-primary);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 0.9rem 1.4rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .canva-open-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 119, 182, 0.3);
+        }
+
+        /* Hide Canva credit link visually (optional) */
+        .canva-credit {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -848,10 +904,12 @@
             <div class="hero-badge" data-en="Quality in Service Since 2005" data-sq="Cilësi në Shërbim Që Nga 2005">
                 Cilësi në Shërbim Që Nga 2005
             </div>
-            <h1 data-en="Professional Medical Equipment Maintenance" data-sq="Mirëmbajtje Profesionale e Aparaturave Mjekësore">
+            <h1 data-en="Professional Medical Equipment Maintenance"
+                data-sq="Mirëmbajtje Profesionale e Aparaturave Mjekësore">
                 Mirëmbajtje Profesionale e<br>Aparaturave Mjekësore
             </h1>
-            <p data-en="Delivering excellence in healthcare technology services across the region" data-sq="Duke ofruar përsosmëri në shërbimet e teknologjisë shëndetësore në të gjithë rajonin">
+            <p data-en="Delivering excellence in healthcare technology services across the region"
+                data-sq="Duke ofruar përsosmëri në shërbimet e teknologjisë shëndetësore në të gjithë rajonin">
                 Duke ofruar përsosmëri në shërbimet e teknologjisë shëndetësore në të gjithë rajonin
             </p>
             <div class="hero-stats">
@@ -861,11 +919,13 @@
                 </div>
                 <div class="hero-stat">
                     <span class="hero-stat-number">500+</span>
-                    <span class="hero-stat-label" data-en="Happy Clients" data-sq="Klientë të Kënaqur">Klientë të Kënaqur</span>
+                    <span class="hero-stat-label" data-en="Happy Clients" data-sq="Klientë të Kënaqur">Klientë të
+                        Kënaqur</span>
                 </div>
                 <div class="hero-stat">
                     <span class="hero-stat-number">5000+</span>
-                    <span class="hero-stat-label" data-en="Services Completed" data-sq="Shërbime të Përfunduara">Shërbime të Përfunduara</span>
+                    <span class="hero-stat-label" data-en="Services Completed"
+                        data-sq="Shërbime të Përfunduara">Shërbime të Përfunduara</span>
                 </div>
             </div>
         </div>
@@ -877,7 +937,9 @@
             <div class="section-header">
                 <div class="section-badge" data-en="What We Do" data-sq="Çfarë Bëjmë">Çfarë Bëjmë</div>
                 <h2 class="section-title" data-en="Our Services" data-sq="Shërbimet Tona">Shërbimet Tona</h2>
-                <p class="section-description" data-en="Comprehensive maintenance and repair services for all types of medical equipment" data-sq="Shërbime gjithëpërfshirëse mirëmbajtjeje dhe riparimi për të gjitha llojet e pajisjeve mjekësore">
+                <p class="section-description"
+                    data-en="Comprehensive maintenance and repair services for all types of medical equipment"
+                    data-sq="Shërbime gjithëpërfshirëse mirëmbajtjeje dhe riparimi për të gjitha llojet e pajisjeve mjekësore">
                     Shërbime gjithëpërfshirëse mirëmbajtjeje dhe riparimi për të gjitha llojet e pajisjeve mjekësore
                 </p>
             </div>
@@ -916,7 +978,7 @@
                         <li data-en="Dental Chairs" data-sq="Karrige Dentare">Karrige Dentare</li>
                         <li data-en="Air Compressors" data-sq="Kompresorë Ajri">Kompresorë Ajri</li>
                         <li data-en="Surgical Aspirators" data-sq="Aspiratorë Kirurgjikalë">Aspiratorë Kirurgjikalë</li>
-                        
+
                         <li data-en="Dental Equipment" data-sq="Pajisje Dentare">Pajisje Dentare</li>
                     </ul>
                 </div>
@@ -930,7 +992,8 @@
                         <li data-en="Defibrillator Testing" data-sq="Testim Defibrilatorësh">Testim Defibrilatorësh</li>
                         <li data-en="Monitor Verification" data-sq="Verifikim Monitorësh">Verifikim Monitorësh</li>
                         <li data-en="Safety Inspections" data-sq="Kontrolle Sigurie">Kontrolle Sigurie</li>
-                        <li data-en="Preventive Maintenance" data-sq="Mirëmbajtje Parandaluese">Mirëmbajtje Parandaluese</li>
+                        <li data-en="Preventive Maintenance" data-sq="Mirëmbajtje Parandaluese">Mirëmbajtje Parandaluese
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -942,55 +1005,108 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-badge" data-en="Our Work" data-sq="Puna Jonë">Puna Jonë</div>
-                <h2 class="section-title" data-en="Completed Projects" data-sq="Projekte të Realizuara">Projekte të Realizuara</h2>
-                <p class="section-description" data-en="A showcase of our recent maintenance and installation projects" data-sq="Një shfaqje e projekteve tona të fundit të mirëmbajtjes dhe instalimit">
+                <h2 class="section-title" data-en="Completed Projects" data-sq="Projekte të Realizuara">Projekte të
+                    Realizuara</h2>
+                <p class="section-description" data-en="A showcase of our recent maintenance and installation projects"
+                    data-sq="Një shfaqje e projekteve tona të fundit të mirëmbajtjes dhe instalimit">
                     Një shfaqje e projekteve tona të fundit të mirëmbajtjes dhe instalimit
                 </p>
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop" alt="Hospital Equipment">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop"
+                        alt="Hospital Equipment">
                     <div class="gallery-overlay">
-                        <h4 data-en="Hospital Equipment Maintenance" data-sq="Mirëmbajtje E Aparaturave Mjekësore">Mirëmbajtje E Aparaturave Mjekësore</h4>
-                        <p data-en="Services for hospitals and private polyclinics" data-sq="Shërbime per spitale dhe poliklinika private">Shërbime per spitale dhe poliklinika private</p>
+                        <h4 data-en="Hospital Equipment Maintenance" data-sq="Mirëmbajtje E Aparaturave Mjekësore">
+                            Mirëmbajtje E Aparaturave Mjekësore</h4>
+                        <p data-en="Services for hospitals and private polyclinics"
+                            data-sq="Shërbime per spitale dhe poliklinika private">Shërbime per spitale dhe poliklinika
+                            private</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581594549595-35f6edc7b762?w=800&h=600&fit=crop" alt="Laboratory">
+                    <img src="https://images.unsplash.com/photo-1581594549595-35f6edc7b762?w=800&h=600&fit=crop"
+                        alt="Laboratory">
                     <div class="gallery-overlay">
-                        <h4 data-en="Lab Equipment Maintenance" data-sq="Servisim i Pajisjeve Laboratorike">Servisim i Pajisjeve Laboratorike</h4>
-                        <p data-en="Service of all laboratory equipment" data-sq="Servis i të gjitha pajisjeve laboratorike">Servis i të gjitha pajisjeve laboratorike</p>
+                        <h4 data-en="Lab Equipment Maintenance" data-sq="Servisim i Pajisjeve Laboratorike">Servisim i
+                            Pajisjeve Laboratorike</h4>
+                        <p data-en="Service of all laboratory equipment"
+                            data-sq="Servis i të gjitha pajisjeve laboratorike">Servis i të gjitha pajisjeve
+                            laboratorike</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop" alt="Dental Clinic">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop"
+                        alt="Dental Clinic">
                     <div class="gallery-overlay">
-                        <h4 data-en="Dental Equipment Maintenance" data-sq="Mirëmbajtje e Pajisjeve Dentare">Mirëmbajtje e Pajisjeve Dentare</h4>
-                        <p data-en="Full dental equipment maintenance" data-sq="Mirëmbajtje e plotë e pajisjeve dentare">Mirëmbajtje e plotë e pajisjeve dentare</p>
+                        <h4 data-en="Dental Equipment Maintenance" data-sq="Mirëmbajtje e Pajisjeve Dentare">Mirëmbajtje
+                            e Pajisjeve Dentare</h4>
+                        <p data-en="Full dental equipment maintenance"
+                            data-sq="Mirëmbajtje e plotë e pajisjeve dentare">Mirëmbajtje e plotë e pajisjeve dentare
+                        </p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&h=600&fit=crop" alt="Testing">
+                    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&h=600&fit=crop"
+                        alt="Testing">
                     <div class="gallery-overlay">
                         <h4 data-en="Equipment Testing" data-sq="Testim Pajisjesh">Testim Pajisjesh</h4>
-                        <p data-en="Comprehensive calibration services" data-sq="Shërbime të plota kalibrimi">Shërbime të plota kalibrimi</p>
+                        <p data-en="Comprehensive calibration services" data-sq="Shërbime të plota kalibrimi">Shërbime
+                            të plota kalibrimi</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="images/gallery_aesthetic.jpg" alt="Aesthetic">
                     <div class="gallery-overlay">
-                        <h4 data-en="Aesthetic Equipment Maintenance" data-sq="Mirëmbajtje e Aparaturave Estetike">Mirëmbajtje e Aparaturave Estetike</h4>
-                        <p data-en="Full maintenance of aesthetic equipment" data-sq="Mirëmbajtje e plotë e Aparaturave Estetike">Mirëmbajtje e plotë e Aparaturave Estetike</p>
+                        <h4 data-en="Aesthetic Equipment Maintenance" data-sq="Mirëmbajtje e Aparaturave Estetike">
+                            Mirëmbajtje e Aparaturave Estetike</h4>
+                        <p data-en="Full maintenance of aesthetic equipment"
+                            data-sq="Mirëmbajtje e plotë e Aparaturave Estetike">Mirëmbajtje e plotë e Aparaturave
+                            Estetike</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="images/milkoscan.jpg" alt="milkoscan">
                     <div class="gallery-overlay">
-                        <h4 data-en="FoodTech Laboratory Systems" data-sq="Sistemet Laboratorike të Teknologjisë Ushqimore">Sistemet Laboratorike të Teknologjisë Ushqimore</h4>
-                        <p data-en="Full maintenance of FoodTech Laboratory Equipment" data-sq="Riparim dhe mirëmbajtje e sistemeve Laboratorike të Teknologjisë Ushqimore">Riparim dhe mirëmbajtje e sistemeve Laboratorike të Teknologjisë Ushqimore</p>
+                        <h4 data-en="FoodTech Laboratory Systems"
+                            data-sq="Sistemet Laboratorike të Teknologjisë Ushqimore">Sistemet Laboratorike të
+                            Teknologjisë Ushqimore</h4>
+                        <p data-en="Full maintenance of FoodTech Laboratory Equipment"
+                            data-sq="Riparim dhe mirëmbajtje e sistemeve Laboratorike të Teknologjisë Ushqimore">Riparim
+                            dhe mirëmbajtje e sistemeve Laboratorike të Teknologjisë Ushqimore</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Canva Presentation Embed (Portfolio) -->
+            <div class="canva-embed-wrap">
+                <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%;
+                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 2rem; margin-bottom: 0.9em; overflow: hidden;
+                border-radius: 20px; will-change: transform;">
+                    <iframe loading="lazy"
+                        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+                        src="https://www.canva.com/design/DAG9lJ4Ksqw/gqR62c8gvvE3h-fIi9HRKg/view?embed"
+                        allowfullscreen="allowfullscreen" allow="fullscreen">
+                    </iframe>
+                </div>
+
+                <!-- Clean CTA button (opens in presentation view) -->
+                <div class="canva-actions">
+                    <a class="canva-open-btn"
+                        href="https://www.canva.com/design/DAG9lJ4Ksqw/gqR62c8gvvE3h-fIi9HRKg/view" target="_blank"
+                        rel="noopener">
+                        Hap Prezantimin (Full Screen)
+                    </a>
+
+                    <!-- Keep Canva credit in HTML for compliance, but hide it with CSS below -->
+                    <a class="canva-credit"
+                        href="https://www.canva.com/design/DAG9lJ4Ksqw/gqR62c8gvvE3h-fIi9HRKg/view?utm_content=DAG9lJ4Ksqw&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+                        target="_blank" rel="noopener">
+                        Presentation - Medical &amp; Advanced Maintenance
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -999,32 +1115,45 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-badge" data-en="About MAM" data-sq="Rreth MAM">Rreth MAM</div>
-                <h2 class="section-title" data-en="Two Decades of Excellence" data-sq="Dy Dekada Përsosmërie">Dy Dekada Përsosmërie</h2>
-                <p class="section-description" data-en="Your trusted partner in medical equipment maintenance" data-sq="Partneri juaj i besueshëm në mirëmbajtjen e pajisjeve mjekësore">
+                <h2 class="section-title" data-en="Two Decades of Excellence" data-sq="Dy Dekada Përsosmërie">Dy Dekada
+                    Përsosmërie</h2>
+                <p class="section-description" data-en="Your trusted partner in medical equipment maintenance"
+                    data-sq="Partneri juaj i besueshëm në mirëmbajtjen e pajisjeve mjekësore">
                     Partneri juaj i besueshëm në mirëmbajtjen e pajisjeve mjekësore
                 </p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p data-en="MAM Medical Equipment Maintenance has been at the forefront of healthcare technology services in Albania for over 20 years. We specialize in the comprehensive maintenance, repair, calibration, and testing of medical, laboratory, and dental equipment." data-sq="MAM Mirëmbajtje Pajisjesh Mjekësore ka qenë në ballë të shërbimeve të teknologjisë shëndetësore në Shqipëri për më shumë se 20 vjet. Ne specializohemi në mirëmbajtjen gjithëpërfshirëse, riparimin, kalibrimin dhe testimin e pajisjeve mjekësore, laboratorike dhe dentare.">
-                        MAM Mirëmbajtja e Aparaturave Mjekësore ka qenë në ballë të shërbimeve të teknologjisë shëndetësore në Shqipëri për më shumë se 20 vjet. Ne specializohemi në mirëmbajtjen gjithëpërfshirëse, riparimin, kalibrimin dhe testimin e pajisjeve mjekësore, laboratorike dhe dentare.
+                    <p data-en="MAM Medical Equipment Maintenance has been at the forefront of healthcare technology services in Albania for over 20 years. We specialize in the comprehensive maintenance, repair, calibration, and testing of medical, laboratory, and dental equipment."
+                        data-sq="MAM Mirëmbajtje Pajisjesh Mjekësore ka qenë në ballë të shërbimeve të teknologjisë shëndetësore në Shqipëri për më shumë se 20 vjet. Ne specializohemi në mirëmbajtjen gjithëpërfshirëse, riparimin, kalibrimin dhe testimin e pajisjeve mjekësore, laboratorike dhe dentare.">
+                        MAM Mirëmbajtja e Aparaturave Mjekësore ka qenë në ballë të shërbimeve të teknologjisë
+                        shëndetësore në Shqipëri për më shumë se 20 vjet. Ne specializohemi në mirëmbajtjen
+                        gjithëpërfshirëse, riparimin, kalibrimin dhe testimin e pajisjeve mjekësore, laboratorike dhe
+                        dentare.
                     </p>
-                    <p data-en="Our team of certified technicians ensures that your medical equipment operates at peak performance, helping you deliver the best possible care to your patients. We pride ourselves on rapid response times, technical expertise, and an unwavering commitment to quality and safety." data-sq="Ekipi ynë i teknikëve të çertifikuar siguron që pajisjet tuaja mjekësore të funksionojnë në performancën maksimale, duke ju ndihmuar të ofroni kujdesin më të mirë të mundshëm për pacientët tuaj. Ne krenohemi me kohët tona të shpejta të përgjigjes, ekspertizën teknike dhe angazhimin e palëkundur ndaj cilësisë dhe sigurisë.">
-                        Ekipi ynë i teknikëve të çertifikuar siguron që pajisjet tuaja mjekësore të funksionojnë në performancën maksimale, duke ju ndihmuar të ofroni kujdesin më të mirë të mundshëm për pacientët tuaj. Ne krenohemi me kohët tona të shpejta të përgjigjes, ekspertizën teknike dhe angazhimin e palëkundur ndaj cilësisë dhe sigurisë.
+                    <p data-en="Our team of certified technicians ensures that your medical equipment operates at peak performance, helping you deliver the best possible care to your patients. We pride ourselves on rapid response times, technical expertise, and an unwavering commitment to quality and safety."
+                        data-sq="Ekipi ynë i teknikëve të çertifikuar siguron që pajisjet tuaja mjekësore të funksionojnë në performancën maksimale, duke ju ndihmuar të ofroni kujdesin më të mirë të mundshëm për pacientët tuaj. Ne krenohemi me kohët tona të shpejta të përgjigjes, ekspertizën teknike dhe angazhimin e palëkundur ndaj cilësisë dhe sigurisë.">
+                        Ekipi ynë i teknikëve të çertifikuar siguron që pajisjet tuaja mjekësore të funksionojnë në
+                        performancën maksimale, duke ju ndihmuar të ofroni kujdesin më të mirë të mundshëm për pacientët
+                        tuaj. Ne krenohemi me kohët tona të shpejta të përgjigjes, ekspertizën teknike dhe angazhimin e
+                        palëkundur ndaj cilësisë dhe sigurisë.
                     </p>
                     <div class="about-features">
                         <div class="about-feature">
                             <div class="about-feature-icon"><i class="fas fa-certificate"></i></div>
                             <div>
-                                <h4 data-en="Certified Technicians" data-sq="Teknikë të Çertifikuar">Teknikë të Çertifikuar</h4>
-                                <p data-en="Highly trained professionals" data-sq="Profesionistë me trajnim të lartë">Profesionistë me trajnim të lartë</p>
+                                <h4 data-en="Certified Technicians" data-sq="Teknikë të Çertifikuar">Teknikë të
+                                    Çertifikuar</h4>
+                                <p data-en="Highly trained professionals" data-sq="Profesionistë me trajnim të lartë">
+                                    Profesionistë me trajnim të lartë</p>
                             </div>
                         </div>
                         <div class="about-feature">
                             <div class="about-feature-icon"><i class="fas fa-clock"></i></div>
                             <div>
                                 <h4 data-en="24/7 Support" data-sq="Mbështetje 24/7">Mbështetje 24/7</h4>
-                                <p data-en="Always here when you need us" data-sq="Gjithmonë këtu kur na keni nevojë">Gjithmonë këtu kur na keni nevojë</p>
+                                <p data-en="Always here when you need us" data-sq="Gjithmonë këtu kur na keni nevojë">
+                                    Gjithmonë këtu kur na keni nevojë</p>
                             </div>
                         </div>
                     </div>
@@ -1032,19 +1161,23 @@
                 <div class="about-stats">
                     <div class="stat-box">
                         <span class="stat-number">20+</span>
-                        <span class="stat-label" data-en="Years in Business" data-sq="Vite në Biznes">Vite në Biznes</span>
+                        <span class="stat-label" data-en="Years in Business" data-sq="Vite në Biznes">Vite në
+                            Biznes</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-number">500+</span>
-                        <span class="stat-label" data-en="Healthcare Clients" data-sq="Klientë Shëndetësor">Klientë Shëndetësor</span>
+                        <span class="stat-label" data-en="Healthcare Clients" data-sq="Klientë Shëndetësor">Klientë
+                            Shëndetësor</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-number">5000+</span>
-                        <span class="stat-label" data-en="Equipment Serviced" data-sq="Pajisje të Servisuara">Pajisje të Servisuara</span>
+                        <span class="stat-label" data-en="Equipment Serviced" data-sq="Pajisje të Servisuara">Pajisje të
+                            Servisuara</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-number">100%</span>
-                        <span class="stat-label" data-en="Client Satisfaction" data-sq="Kënaqësi Klientësh">Kënaqësi Klientësh</span>
+                        <span class="stat-label" data-en="Client Satisfaction" data-sq="Kënaqësi Klientësh">Kënaqësi
+                            Klientësh</span>
                     </div>
                 </div>
             </div>
@@ -1057,7 +1190,8 @@
             <div class="section-header">
                 <div class="section-badge" data-en="Get in Touch" data-sq="Kontaktoni Me Ne">Kontaktoni Me Ne</div>
                 <h2 class="section-title" data-en="Contact Us" data-sq="Na Kontaktoni">Na Kontaktoni</h2>
-                <p class="section-description" data-en="Reach out for service inquiries, quotes, or emergency support" data-sq="Na kontaktoni për kërkesa shërbimi, kuota ose mbështetje emergjente">
+                <p class="section-description" data-en="Reach out for service inquiries, quotes, or emergency support"
+                    data-sq="Na kontaktoni për kërkesa shërbimi, kuota ose mbështetje emergjente">
                     Na kontaktoni për kërkesa shërbimi, kuota ose mbështetje emergjente
                 </p>
             </div>
@@ -1075,7 +1209,7 @@
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-info-text">
                             <strong>Email</strong>
-                            <a href="mailto:atdhearenliu@yahoo.com">atdhearenliu@yahoo.com</a>
+                            <a href="mailto:atdhe@mamfix.com">atdhe@mamfix.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1086,10 +1220,14 @@
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:info@mam-medical.al" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.facebook.com/atdhearenliumam/" class="social-link" aria-label="Facebook"
+                            target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/mam.ntsh/reels/" class="social-link" aria-label="Instagram"
+                            target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/atdhe-arenliu-76949429" class="social-link"
+                            aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:atdhe@mamfix.com" class="social-link" aria-label="Email"><i
+                                class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="contact-card">
@@ -1101,8 +1239,8 @@
                             <span>08:00 - 16:00</span>
                         </div>
                     </div>
-                    
-                
+
+
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-ambulance"></i></div>
                         <div class="contact-info-text">
@@ -1118,7 +1256,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 MAM Medical Equipment Maintenance. <span data-en="All rights reserved." data-sq="Të gjitha të drejtat e rezervuara.">Të gjitha të drejtat e rezervuara.</span></p>
+            <p>&copy; 2025 MAM Medical Equipment Maintenance. <span data-en="All rights reserved."
+                    data-sq="Të gjitha të drejtat e rezervuara.">Të gjitha të drejtat e rezervuara.</span></p>
         </div>
     </footer>
 
@@ -1128,7 +1267,7 @@
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'sq' ? 'en' : 'sq';
             const elements = document.querySelectorAll('[data-en][data-sq]');
-            
+
             elements.forEach(element => {
                 element.textContent = element.getAttribute(`data-${currentLanguage}`);
             });
@@ -1141,7 +1280,7 @@
             const section = document.getElementById(sectionId);
             const navHeight = document.querySelector('.navbar').offsetHeight;
             const sectionPosition = section.offsetTop - navHeight;
-            
+
             window.scrollTo({
                 top: sectionPosition,
                 behavior: 'smooth'
@@ -1168,7 +1307,7 @@
         document.addEventListener('click', (e) => {
             const nav = document.querySelector('.nav-menu');
             const hamburger = document.querySelector('.hamburger');
-            
+
             if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
                 nav.classList.remove('active');
             }
@@ -1199,23 +1338,24 @@
                 observer.observe(el);
             });
         });
-    
-// --- Dynamic navbar height for responsive layout ---
-function updateNavHeight() {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-    const h = navbar.offsetHeight || 75;
-    document.documentElement.style.setProperty('--nav-height', h + 'px');
-    const navMenu = document.querySelector('.nav-menu');
-    if (navMenu) {
-        navMenu.style.top = 'var(--nav-height)';
-    }
-}
 
-window.addEventListener('load', updateNavHeight);
-window.addEventListener('resize', updateNavHeight);
-window.addEventListener('scroll', updateNavHeight);
+        // --- Dynamic navbar height for responsive layout ---
+        function updateNavHeight() {
+            const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
+            const h = navbar.offsetHeight || 75;
+            document.documentElement.style.setProperty('--nav-height', h + 'px');
+            const navMenu = document.querySelector('.nav-menu');
+            if (navMenu) {
+                navMenu.style.top = 'var(--nav-height)';
+            }
+        }
 
-</script>
+        window.addEventListener('load', updateNavHeight);
+        window.addEventListener('resize', updateNavHeight);
+        window.addEventListener('scroll', updateNavHeight);
+
+    </script>
 </body>
+
 </html>
